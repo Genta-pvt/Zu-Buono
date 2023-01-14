@@ -29,13 +29,13 @@
     </style>
     <script>
         // define the callAPI function that takes a first name and last name as parameters
-        var callAPI = (firstName,lastName)=>{
+        var callAPI = (title,material_1,material_2,material_3,material_4,material_5,how_to,contributor)=>{
             // instantiate a headers object
             var myHeaders = new Headers();
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"firstName":firstName,"lastName":lastName});
+            var raw = JSON.stringify({"Title": "硬い豆腐","Picture": "S3Address?","Material1": "とうふ","Material2": "塩","Material3": "","Material4": "hoge","Material5": "hoge","HowTo": "凍らせる\r\n塩を振る","Contributor": "げんた"});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -57,7 +57,7 @@
         <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
         <p>
             <label>タイトル :</label>
-            <input type="text" maxlength="15" size="25"  id="fName">
+            <input type="text" maxlength="15" size="25"  id="Title">
         </p>
         <p>
             <label>写真 :</label>
@@ -81,7 +81,7 @@
         </p>
         <p>
             <label>材料 5:</label>
-            <input type="text" maxlength="10" size="20" id="lName">
+            <input type="text" maxlength="10" size="20" id="Material5">
         </p>
         <p>
             <label>作り方 :</label>
@@ -92,7 +92,7 @@
             <input type="text" size="10" id="Contributor">
         </p>
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
+        <button type="button" onclick="callAPI(document.getElementById('Title').value,document.getElementById('Material1').value,document.getElementById('Material2').value,document.getElementById('Material3').value,document.getElementById('Material4').value,document.getElementById('Material5').value,document.getElementById('HowTo').value,document.getElementById('Contributor').value)">Call API</button>
     </form>
 </body>
 </html>
