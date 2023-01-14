@@ -8,7 +8,7 @@ from time import gmtime, strftime
 # create a DynamoDB object using the AWS SDK
 dynamodb = boto3.resource('dynamodb')
 # use the DynamoDB object to select our table
-table = dynamodb.Table('HelloWorldDatabase')
+table = dynamodb.Table('Zu-BuonoRecipe')
 # store the current time in a human readable format in a variable
 now = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 
@@ -23,16 +23,23 @@ def lambda_handler(event, context):
     material_4 = event['Material4']
     material_5 = event['Material5']
     how_to = event['HowTo']
-    Contributor = event['Contributor']
+    contributor = event['Contributor']
 
 # write name and time to the DynamoDB table using the object we instantiated and save response in a variable
     response = table.put_item(
         Item={
-            'ID': Contributor,
-            'LatestGreetingTime':now
+            'Title': title,
+            'Picture': picture,
+            'Material1': material_1,
+            'Material2': material_2,
+            'Material3': material_3,
+            'Material4': material_4,
+            'Material5': material_5,
+            'HowTo': how_to,
+            'Contributor': contributor,
             })
 # return a properly formatted JSON object
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda, ' + Contributor)
+        'body': json.dumps('Hello from Lambda, ' + contributor)
     }
