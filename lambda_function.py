@@ -15,7 +15,16 @@ now = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 # define the handler function that the Lambda service will use as an entry point
 def lambda_handler(event, context):
 # extract values from the event object we got from the Lambda service and store in a variable
-    name = event['firstName'] +' '+ event['lastName']
+    title = event['Title']
+    picture = event['Picture']
+    name = event['Material1']
+    now = event['Material2']
+    material_3 = event['Material3']
+    material_4 = event['Material4']
+    material_5 = event['Material5']
+    how_to = event['HowTo']
+    contributor = event['Contributor']
+
 # write name and time to the DynamoDB table using the object we instantiated and save response in a variable
     response = table.put_item(
         Item={
