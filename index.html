@@ -57,7 +57,7 @@
         <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
         <p>
             <label>タイトル :</label>
-            <input type="text" maxlength="15" size="25"  id="Title">
+            <input type="text" maxlength="15" size="25"  id="fName">
         </p>
         <p>
             <label>写真 :</label>
@@ -81,7 +81,7 @@
         </p>
         <p>
             <label>材料 5:</label>
-            <input type="text" maxlength="10" size="20" id="Material5">
+            <input type="text" maxlength="10" size="20" id="lName">
         </p>
         <p>
             <label>作り方 :</label>
@@ -92,7 +92,7 @@
             <input type="text" size="10" id="Contributor">
         </p>
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">投稿する</button>
+        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
     </form>
 </body>
 </html>
