@@ -57,39 +57,39 @@
         <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
         <p>
             <label>タイトル :</label>
-            <input type="text" maxlength="15" size="25"  id=" title">
+            <input type="text" maxlength="15" size="25"  id="Title">
         </p>
         <p>
             <label>写真 :</label>
-            <input type="file" id="picture">
+            <input type="file" id="Picture">
         </p>
         <p>
             <label>材料 1:</label>
-            <input type="text" maxlength="10" size="20" id="fName">
+            <input type="text" maxlength="10" size="20" id="Material1">
         </p>
         <p>
             <label>材料 2:</label>
-            <input type="text" maxlength="10" size="20" id="fName">
+            <input type="text" maxlength="10" size="20" id="Material2">
         </p>
         <p>
             <label>材料 3:</label>
-            <input type="text" maxlength="10" size="20" id="fName">
+            <input type="text" maxlength="10" size="20" id="Material3">
         </p>
         <p>
             <label>材料 4:</label>
-            <input type="text" maxlength="10" size="20" id="fName">
+            <input type="text" maxlength="10" size="20" id="Material4">
         </p>
         <p>
             <label>材料 5:</label>
-            <input type="text" maxlength="10" size="20" id="fName">
+            <input type="text" maxlength="10" size="20" id="Material5">
         </p>
         <p>
             <label>作り方 :</label>
-            <textarea rows="5" cols="80" maxlength="200">col属性とrows属性を指定してサイズを変更しています</textarea>
+            <textarea rows="5" cols="80" maxlength="200" id="HowTo">col属性とrows属性を指定してサイズを変更しています</textarea>
         </p>
         <p>
             <label>投稿者 :</label>
-            <input type="text" size="10" id="fName">
+            <input type="text" size="10" id="Contributor">
         </p>
         <!-- set button onClick method to call function we defined passing input values as parameters -->
         <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">投稿する</button>
