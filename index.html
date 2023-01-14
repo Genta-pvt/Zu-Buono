@@ -2,20 +2,26 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Zu-Buono!</title>
     <!-- Add some CSS to change client UI -->
     <style>
     body {
-        background-color: #232F3E;
+        background-color: #ffffff;
         }
-    label, button {
-        color: #FF9900;
+    label {
+        color: #e8726c;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 40px;
+        }
+    button {
+        color: #84ff79;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
         margin-left: 40px;
         }
      input {
-        color: #232F3E;
+        color: #000000;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 20px;
         margin-left: 20px;
@@ -47,12 +53,46 @@
 </head>
 <body>
     <form>
-        <label>First Name :</label>
-        <input type="text" id="fName">
-        <label>Last Name :</label>
-        <input type="text" id="lName">
+        <h1>Zu-Buono!</h1>
+        <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
+        <p>
+            <label>タイトル :</label>
+            <input type="text" maxlength="15" size="25"  id=" title">
+        </p>
+        <p>
+            <label>写真 :</label>
+            <input type="file" id="picture">
+        </p>
+        <p>
+            <label>材料 1:</label>
+            <input type="text" maxlength="10" size="20" id="fName">
+        </p>
+        <p>
+            <label>材料 2:</label>
+            <input type="text" maxlength="10" size="20" id="fName">
+        </p>
+        <p>
+            <label>材料 3:</label>
+            <input type="text" maxlength="10" size="20" id="fName">
+        </p>
+        <p>
+            <label>材料 4:</label>
+            <input type="text" maxlength="10" size="20" id="fName">
+        </p>
+        <p>
+            <label>材料 5:</label>
+            <input type="text" maxlength="10" size="20" id="fName">
+        </p>
+        <p>
+            <label>作り方 :</label>
+            <textarea rows="5" cols="80" maxlength="200">col属性とrows属性を指定してサイズを変更しています</textarea>
+        </p>
+        <p>
+            <label>投稿者 :</label>
+            <input type="text" size="10" id="fName">
+        </p>
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">Call API</button>
+        <button type="button" onclick="callAPI(document.getElementById('fName').value,document.getElementById('lName').value)">投稿する</button>
     </form>
 </body>
 </html>
