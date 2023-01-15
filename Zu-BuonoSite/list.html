@@ -33,11 +33,16 @@
 
                 var sampleArea = document.getElementById("List");
                 for (let i = 0; i < list.length; i++) {
-                    sampleArea.innerHTML += "<a href='each_recipe.html'>" + list[i].Title + "</a>" + "    投稿者：" + list[i].Contributor + "<br>";
+                    sampleArea.innerHTML += "<a href='each_recipe.html' onclick='MemoryTitle(`" + list[i].Title + "`)'>" + list[i].Title + "</a>" + "    投稿者：" + list[i].Contributor + "<br>";
                 }
             })
             .catch(error => console.log('error', error));
         };
+
+        var MemoryTitle = (title) => {
+            sessionStorage.setItem('Title',title);
+            console.log("覚えた")
+        }
     </script>
 </head>
 <body>
