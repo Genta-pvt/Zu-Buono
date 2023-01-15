@@ -54,7 +54,6 @@
 <body>
     <form>
         <h1>Zu-Buono!</h1>
-        <a href="list.html">レシピを見る</a>
         <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
         <p>
             <label>タイトル :</label>
@@ -86,14 +85,17 @@
         </p>
         <p>
             <label>作り方 :</label>
-            <textarea rows="5" cols="80" maxlength="200" id="HowTo">col属性とrows属性を指定してサイズを変更しています</textarea>
+            <textarea rows="5" cols="80" maxlength="200" id="HowTo"></textarea>
         </p>
         <p>
             <label>投稿者 :</label>
             <input type="text" size="10" id="Contributor">
         </p>
         <!-- set button onClick method to call function we defined passing input values as parameters -->
-        <button type="button" onclick="callAPI(document.getElementById('Title').value,document.getElementById('Material1').value,document.getElementById('Material2').value,document.getElementById('Material3').value,document.getElementById('Material4').value,document.getElementById('Material5').value,document.getElementById('HowTo').value,document.getElementById('Contributor').value)">Call API</button>
+        <p>
+            <button type="button" onclick="callAPI(document.getElementById('Title').value,document.getElementById('Material1').value,document.getElementById('Material2').value,document.getElementById('Material3').value,document.getElementById('Material4').value,document.getElementById('Material5').value,document.getElementById('HowTo').value,document.getElementById('Contributor').value)">投稿！</button>
+        </p>
+        <a href="list.html">他の人が投稿したレシピを見てみる</a>
     </form>
 </body>
 </html>
