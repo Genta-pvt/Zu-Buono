@@ -14,19 +14,24 @@
     <h1>Zu-Buono!</h1>
     <a href="index.html">HOME</a>
     <a href="list.html">一覧</a>
-        <h2>硬い豆腐</h2>
-        <img src="images\SumplePicture.bmp" width="500" alt="Food photo">
-            <h3>材料</h3>
-                <ul>
-                    <li>とうふ</li>
-                    <li>塩</li>
-                </ul>
-            <h3>作り方</h3>
-                <p>豆腐を凍らせる</p>
-            <h3>投稿者</h3>
-                <p>げんた</p>
+    <div id="DesplayArea">
+
+    </div>
 </body>
 <script>
-    
+    let variable_part = 
+        '<h2>硬い豆腐</h2>' +
+        '<img src="images\\SumplePicture.bmp" width="500" alt="Food photo">' +
+            '<h3>材料</h3>' +
+                '<ul>' +
+                    '<li>とうふ</li>' +
+                    '<li>塩</li>' +
+                '</ul>' +
+            '<h3>作り方</h3>' +
+                '<p>豆腐を凍らせる</p>' +
+            '<h3>投稿者</h3>' +
+                '<p>げんた</p>'
+    var DesplayArea = document.getElementById("DesplayArea")
+    DesplayArea.innerHTML = variable_part
 </script>
 </html>
