@@ -8,11 +8,48 @@
     <style>
     </style>
     <script>
+        var callAPI = ()=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"":""});
+            var list
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://z0dlq4f8li.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                res_body = JSON.parse(result).body
+                list = JSON.parse(res_body).Items
+                console.log(list)
+
+                var sampleArea = document.getElementById("List");
+                for (let i = 0; i < list.length; i++) {
+                    sampleArea.innerHTML += "<a href='each_recipe.html'>" + list[i].Title + "</a>" + "    投稿者：" + list[i].Contributor + "<br>";
+                }
+            })
+            .catch(error => console.log('error', error));
+        };
     </script>
 </head>
 <body>
     <h1>Zu-Buono!</h1>
     <a href="index.html">HOME</a>
-    <h2>レシピ一覧</h2>    
+    <h2>レシピ一覧</h2>   
+    <button type="button" onclick="callAPI()">Call API</button>
+    <div id="List">
+
+    </div> 
 </body>
+<script>
+    callAPI();
+</script>
 </html>
