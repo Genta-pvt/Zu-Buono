@@ -33,7 +33,7 @@
 
                 var sampleArea = document.getElementById("List");
                 for (let i = 0; i < list.length; i++) {
-                    sampleArea.innerHTML += "<a href='each_recipe.html' onclick='MemoryTitle(`" + list[i].Title + "`)'>" + list[i].Title + "</a>" + "    投稿者：" + list[i].Contributor + "<br>";
+                    sampleArea.innerHTML += "<p>「<a href='each_recipe.html' onclick='MemoryTitle(`" + list[i].Title + "`)'>" + list[i].Title + "</a>」" + "    投稿者：" + list[i].Contributor + "</p>";
                 }
             })
             .catch(error => console.log('error', error));
