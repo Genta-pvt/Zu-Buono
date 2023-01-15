@@ -35,7 +35,7 @@
             // add content type header to object
             myHeaders.append("Content-Type", "application/json");
             // using built in JSON utility package turn object to string and store in a variable
-            var raw = JSON.stringify({"Title": "硬い豆腐","Picture": "S3Address?","Material1": "とうふ","Material2": "塩","Material3": "","Material4": "hoge","Material5": "hoge","HowTo": "凍らせる\r\n塩を振る","Contributor": "げんた"});
+            var raw = JSON.stringify({"Title": title,"Picture": "S3Address?","Material1": material_1,"Material2": material_2,"Material3": material_3,"Material4": material_4,"Material5": material_5,"HowTo": how_to,"Contributor": contributor});
             // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
@@ -54,6 +54,7 @@
 <body>
     <form>
         <h1>Zu-Buono!</h1>
+        <a href="each_recipe.html">レシピを見る</a>
         <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
         <p>
             <label>タイトル :</label>
