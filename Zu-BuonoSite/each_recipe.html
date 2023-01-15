@@ -8,6 +8,56 @@
     <style>
     </style>
     <script>
+        var item = 'hoge'
+        let pass_value = 'fuga'
+        var callAPI = ()=>{
+            // instantiate a headers object
+            var myHeaders = new Headers();
+            // add content type header to object
+            myHeaders.append("Content-Type", "application/json");
+            // using built in JSON utility package turn object to string and store in a variable
+            var raw = JSON.stringify({"Title": sessionStorage.getItem('Title')});
+            var list
+            // create a JSON object with parameters for API call and store in a variable
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            // make API call with parameters and use promises to get response
+            fetch("https://k0bt9bq2kb.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                pass_value = FormatResult(result)
+            })
+            .catch(error => console.log('error', error));
+        };
+
+        var FormatResult = (res) => {
+            res_body = JSON.parse(res).body
+            item = JSON.parse(res_body).Item
+            console.log(item)
+            let variable_part = 
+            '<h2>' + item.Title + '</h2>' +
+            '<img src="images\\SumplePicture.bmp" width="500" alt="Food photo">' +
+            '<h3>材料</h3>' +
+                '<ul>' +
+                    '<li>' + item.Material1 + '</li>' +
+                    '<li>' + item.Material2 + '</li>' +
+                    '<li>' + item.Material3 + '</li>' +
+                    '<li>' + item.Material4 + '</li>' +
+                    '<li>' + item.Material5 + '</li>' +
+                '</ul>' +
+                '<h3>作り方</h3>' +
+                  '<p>' + item.HowTo + '</p>' +
+                '<h3>投稿者</h3>' +
+                  '<p>' + item.Contributor + '</p>'
+            var DesplayArea = document.getElementById("DesplayArea")
+            DesplayArea.innerHTML = variable_part
+            console.log(variable_part)
+        }
+        
     </script>
 </head>
 <body>
@@ -19,20 +69,21 @@
     </div>
 </body>
 <script>
-    let variable_part = 
-        '<h2>硬い豆腐</h2>' +
-        '<img src="images\\SumplePicture.bmp" width="500" alt="Food photo">' +
-            '<h3>材料</h3>' +
-                '<ul>' +
-                    '<li>とうふ</li>' +
-                    '<li>塩</li>' +
-                '</ul>' +
-            '<h3>作り方</h3>' +
-                '<p>豆腐を凍らせる</p>' +
-            '<h3>投稿者</h3>' +
-                '<p>げんた</p>'
+    // let variable_part = 
+    //     '<h2>硬い豆腐</h2>' +
+    //     '<img src="images\\SumplePicture.bmp" width="500" alt="Food photo">' +
+    //         '<h3>材料</h3>' +
+    //             '<ul>' +
+    //                 '<li>とうふ</li>' +
+    //                 '<li>塩</li>' +
+    //             '</ul>' +
+    //         '<h3>作り方</h3>' +
+    //             '<p>豆腐を凍らせる</p>' +
+    //         '<h3>投稿者</h3>' +
+    //             '<p>げんた</p>'
     
     var DesplayArea = document.getElementById("DesplayArea")
-    DesplayArea.innerHTML = variable_part
+    // DesplayArea.innerHTML = variable_part
+    callAPI()
 </script>
 </html>

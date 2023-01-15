@@ -16,7 +16,7 @@ table = dynamodb.Table('Zu-BuonoRecipe')
 # define the handler function that the Lambda service will use as an entry point
 def lambda_handler(event, context):
 # write name and time to the DynamoDB table using the object we instantiated and save response in a variable
-    response = table.scan(AttributesToGet = ['Title', 'Contributor'])
+    response = table.get_item(Key={"Title": event["Title"]})
 # return a properly formatted JSON object
     return {
         'statusCode': 200,
