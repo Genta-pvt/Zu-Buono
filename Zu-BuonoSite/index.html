@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Zu-Buono!</title>
-    <!-- Add some CSS to change client UI -->
     <style>
     body {
         background-color: #ffffff;
@@ -28,22 +27,16 @@
         }
     </style>
     <script>
-        // define the callAPI function that takes a first name and last name as parameters
         var callAPI = (title,material_1,material_2,material_3,material_4,material_5,how_to,contributor)=>{
-            // instantiate a headers object
             var myHeaders = new Headers();
-            // add content type header to object
             myHeaders.append("Content-Type", "application/json");
-            // using built in JSON utility package turn object to string and store in a variable
             var raw = JSON.stringify({"Title": title,"Picture": "S3Address?","Material1": material_1,"Material2": material_2,"Material3": material_3,"Material4": material_4,"Material5": material_5,"HowTo": how_to,"Contributor": contributor});
-            // create a JSON object with parameters for API call and store in a variable
             var requestOptions = {
                 method: 'POST',
                 headers: myHeaders,
                 body: raw,
                 redirect: 'follow'
             };
-            // make API call with parameters and use promises to get response
             fetch("https://uwc68jzx4j.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
             .then(response => response.text())
             .then(result => alert(JSON.parse(result).body))
@@ -91,7 +84,6 @@
             <label>投稿者 :</label>
             <input type="text" size="10" id="Contributor">
         </p>
-        <!-- set button onClick method to call function we defined passing input values as parameters -->
         <p>
             <button type="button" onclick="callAPI(document.getElementById('Title').value,document.getElementById('Material1').value,document.getElementById('Material2').value,document.getElementById('Material3').value,document.getElementById('Material4').value,document.getElementById('Material5').value,document.getElementById('HowTo').value,document.getElementById('Contributor').value)">投稿！</button>
         </p>
