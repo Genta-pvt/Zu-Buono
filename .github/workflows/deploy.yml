@@ -34,3 +34,5 @@ jobs:
           pip3 install awscli
           cd Lambda && zip -r package.zip ./*
           aws lambda update-function-code --function-name test-http --zip-file fileb://package.zip --publish
+          cd ./ScanDB && zip -r package.zip ./*
+          aws lambda update-function-code --function-name ScanDB --zip-file fileb://package.zip --publish
