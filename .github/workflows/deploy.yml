@@ -36,3 +36,5 @@ jobs:
           aws lambda update-function-code --function-name ScanDB --zip-file fileb://package.zip --publish
           cd ../GetItem && zip -r package.zip ./*
           aws lambda update-function-code --function-name GetItem --zip-file fileb://package.zip --publish
+          cd ../HelloWorldFunction && zip -r package.zip ./*
+          aws lambda update-function-code --function-name HelloWorldFunction --zip-file fileb://package.zip --publish
