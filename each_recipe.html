@@ -35,7 +35,7 @@
             console.log(item)
             let variable_part = 
             '<h2>' + item.Title + '</h2>' +
-            '<img src="images\\SumplePicture.bmp" width="500" alt="Food photo">' +
+            '<img src="images\\SamplePicture.bmp" width="500" alt="Food photo">' +
             '<h3>材料</h3>' +
                 '<ul>' +
                     '<li>' + item.Material1 + '</li>' +
@@ -48,8 +48,8 @@
                   '<p>' + item.HowTo + '</p>' +
                 '<h3>投稿者</h3>' +
                   '<p>' + item.Contributor + '</p>'
-            var DesplayArea = document.getElementById("DesplayArea")
-            DesplayArea.innerHTML = variable_part
+            var DisplayArea = document.getElementById("DisplayArea")
+            DisplayArea.innerHTML = variable_part
             console.log(variable_part)
         }
         
@@ -59,12 +59,12 @@
     <h1>Zu-Buono!</h1>
     <a href="index.html">HOME</a>
     <a href="list.html">一覧</a>
-    <div id="DesplayArea">
+    <div id="DisplayArea">
 
     </div>
 </body>
 <script>    
-    var DesplayArea = document.getElementById("DesplayArea")
+    var DisplayArea = document.getElementById("DisplayArea")
     callAPI()
 </script>
 </html>
