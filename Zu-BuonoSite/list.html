@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zu-Buono!</title>
+    <style>
+    </style>
+    <script>
+        var callAPI = ()=>{
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({"":""});
+            var list
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            fetch("https://z0dlq4f8li.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+                res_body = JSON.parse(result).body
+                list = JSON.parse(res_body).Items
+                console.log(list)
+
+                var sampleArea = document.getElementById("List");
+                for (let i = 0; i < list.length; i++) {
+                    sampleArea.innerHTML += "<p>「<a href='each_recipe.html' onclick='MemoryTitle(`" + list[i].Title + "`)'>" + list[i].Title + "</a>」" + "    投稿者：" + list[i].Contributor + "</p>";
+                }
+            })
+            .catch(error => console.log('error', error));
+        };
+
+        var MemoryTitle = (title) => {
+            sessionStorage.setItem('Title',title);
+            console.log("覚えた")
+        }
+    </script>
+</head>
+<body>
+    <h1>Zu-Buono!</h1>
+    <a href="index.html">HOME</a>
+    <h2>レシピ一覧</h2>
+    <div id="List">
+
+    </div> 
+</body>
+<script>
+    callAPI();
+</script>
+</html>

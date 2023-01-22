@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Zu-Buono!</title>
+    <style>
+    body {
+        background-color: #ffffff;
+        }
+    label {
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 40px;
+        }
+    button {
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 40px;
+        }
+     input {
+        color: #000000;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        margin-left: 20px;
+        }
+    </style>
+    <script>
+        var callAPI = (title,material_1,material_2,material_3,material_4,material_5,how_to,contributor)=>{
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            var raw = JSON.stringify({"Title": title,"Picture": "S3Address?","Material1": material_1,"Material2": material_2,"Material3": material_3,"Material4": material_4,"Material5": material_5,"HowTo": how_to,"Contributor": contributor});
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+            fetch("https://uwc68jzx4j.execute-api.us-west-2.amazonaws.com/dev", requestOptions)
+            .then(response => response.text())
+            .then(result => alert(JSON.parse(result).body))
+            .catch(error => console.log('error', error));
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <h1>Zu-Buono!</h1>
+        <P>ずぼーの = ずぼらでBuono(イタリア語でおいしい)なレシピを投稿してください！</P>
+        <p>
+            <label>タイトル :</label>
+            <input type="text" maxlength="15" size="25"  id="Title">
+        </p>
+        <p>
+            <label>写真 :</label>
+            <input type="file" id="Picture">
+        </p>
+        <p>
+            <label>材料 1:</label>
+            <input type="text" maxlength="10" size="20" id="Material1">
+        </p>
+        <p>
+            <label>材料 2:</label>
+            <input type="text" maxlength="10" size="20" id="Material2">
+        </p>
+        <p>
+            <label>材料 3:</label>
+            <input type="text" maxlength="10" size="20" id="Material3">
+        </p>
+        <p>
+            <label>材料 4:</label>
+            <input type="text" maxlength="10" size="20" id="Material4">
+        </p>
+        <p>
+            <label>材料 5:</label>
+            <input type="text" maxlength="10" size="20" id="Material5">
+        </p>
+        <p>
+            <label>作り方 :</label>
+            <textarea rows="5" cols="80" maxlength="200" id="HowTo"></textarea>
+        </p>
+        <p>
+            <label>投稿者 :</label>
+            <input type="text" size="10" id="Contributor">
+        </p>
+        <p>
+            <button type="button" onclick="callAPI(document.getElementById('Title').value,document.getElementById('Material1').value,document.getElementById('Material2').value,document.getElementById('Material3').value,document.getElementById('Material4').value,document.getElementById('Material5').value,document.getElementById('HowTo').value,document.getElementById('Contributor').value)">投稿！</button>
+        </p>
+        <a href="list.html">他の人が投稿したレシピを見てみる</a>
+    </form>
+</body>
+</html>
