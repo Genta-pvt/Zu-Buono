@@ -13,7 +13,7 @@
 - ### レシピ閲覧機能  
     投稿されたレシピの一覧からレシピを選んで情報を閲覧できます。
 ## AWS構成  
-![AWS Architect](https://i.imgur.com/DP0krph.jpg)  
+![AWS Architect](https://i.imgur.com/O40RTSC.jpg)  
 ### CI/CD開発環境を構築しています  
 - Amplify + GitHub  
 - GitHub Action + (OpenID Connect) + AWS Lambda  
