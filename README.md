@@ -15,8 +15,9 @@
 ## AWS構成  
 ![AWS Architect](https://i.imgur.com/DP0krph.jpg)  
 ### CI/CD開発環境を構築しています  
-GitHubとAmplify、AWS Lambdaを紐づけしているので、GitHubでマージすることで、自動的に最新版がデプロイされます。  
-今後、共同開発者が増えた場合でも、スムーズに開発を進行できます。
+- Amplify + GitHub  
+- GitHub Action + (OpenID Connect) + AWS Lambda  
+上記の2種類の連携を実施することにより自動デプロイを実現しています。  
 ## 使用技術  
 ### バックエンド(Lambda)  
 - Python
