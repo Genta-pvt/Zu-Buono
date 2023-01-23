@@ -17,17 +17,31 @@
 ### CI/CD開発環境を構築しています  
 GitHubとAmplify、AWS Lambdaを紐づけしているので、GitHubでマージすることで、自動的に最新版がデプロイされます。  
 今後、共同開発者が増えた場合でも、スムーズに開発を進行できます。
-## 使用言語  
+## 使用技術  
 ### バックエンド(Lambda)  
 - Python
     - バージョン
         > Python 3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)] on win32  
 ### フロントエンド  
 - HTML
+    - バージョン
+        > HTML5  
 - JavaScript
+### AWS基盤
+- Amplify
+- AWS Lambda
+- API Gateway
+- DynamoDB
+- IAM
+### 自動デプロイ  
+- GitHub Action
+- Amplify
+
 ## 開発環境  
 - Pycharm  
   - バージョン
+    > PyCharm 2022.3.1 (Community Edition)
+
 - git
     - バージョン
         > git version 2.39.0.windows.1  
